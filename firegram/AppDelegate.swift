@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,6 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        FIRApp.configure()
+        if let user = FIRAuth.auth()?.currentUser{
+            
+            FIRDatabase.database().reference().child("users").child(user.uid).observeSingleEventOfType(.Value, withBlock: { (snapshot: FIRDataSnapshot) in
+                FirebaseHelper.currentUser = User(username: snapshot.value!["username"] as! String, key: FIRAuth.auth()!.currentUser!.uid)
+
+            })
+
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+            self.window?.rootViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController")
+            self.window?.makeKeyAndVisible()
+        }
         // Override point for customization after application launch.
         return true
     }

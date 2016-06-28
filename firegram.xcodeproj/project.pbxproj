@@ -7,21 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D378394F1D2181CF00CC08F1 /* FirebaseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D378394E1D2181CF00CC08F1 /* FirebaseHelper.swift */; };
+		D37839521D2186E000CC08F1 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37839511D2186E000CC08F1 /* Post.swift */; };
+		D378397E1D21DCA600CC08F1 /* FriendSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D378397D1D21DCA600CC08F1 /* FriendSearchViewController.swift */; };
+		D37839811D21DD4D00CC08F1 /* FriendSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37839801D21DD4D00CC08F1 /* FriendSearchTableViewCell.swift */; };
+		D37839831D21E00100CC08F1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D37839821D21E00100CC08F1 /* User.swift */; };
 		D3FB9D141D207E7900DD6E53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FB9D131D207E7900DD6E53 /* AppDelegate.swift */; };
-		D3FB9D161D207E7900DD6E53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FB9D151D207E7900DD6E53 /* ViewController.swift */; };
 		D3FB9D191D207E7900DD6E53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3FB9D171D207E7900DD6E53 /* Main.storyboard */; };
 		D3FB9D1B1D207E7900DD6E53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3FB9D1A1D207E7900DD6E53 /* Assets.xcassets */; };
 		D3FB9D1E1D207E7900DD6E53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3FB9D1C1D207E7900DD6E53 /* LaunchScreen.storyboard */; };
+		D3FB9D261D207EC400DD6E53 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D3FB9D251D207EC400DD6E53 /* GoogleService-Info.plist */; };
+		D3FB9D291D20835A00DD6E53 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FB9D281D20835A00DD6E53 /* SignInViewController.swift */; };
+		D3FB9D2C1D20846D00DD6E53 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FB9D2B1D20846D00DD6E53 /* ErrorHandling.swift */; };
+		D3FB9D2E1D2084D400DD6E53 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FB9D2D1D2084D400DD6E53 /* Constants.swift */; };
+		D3FB9D301D20874500DD6E53 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FB9D2F1D20874500DD6E53 /* TimelineViewController.swift */; };
+		D3FB9D341D20887600DD6E53 /* PostHeaderCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FB9D321D20887600DD6E53 /* PostHeaderCellView.swift */; };
+		D3FB9D351D20887600DD6E53 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FB9D331D20887600DD6E53 /* PostTableViewCell.swift */; };
+		D3FB9D371D20A19F00DD6E53 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FB9D361D20A19F00DD6E53 /* PhotoViewController.swift */; };
+		D3FB9D3A1D20A1C600DD6E53 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FB9D391D20A1C600DD6E53 /* PhotoTakingHelper.swift */; };
+		FFB27650BB60C0030803FFFB /* Pods_firegram.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4217364DFEF0BC2A96323914 /* Pods_firegram.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C026AE75EC31828998F0BF0 /* Pods-firegram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firegram.release.xcconfig"; path = "Pods/Target Support Files/Pods-firegram/Pods-firegram.release.xcconfig"; sourceTree = "<group>"; };
+		4217364DFEF0BC2A96323914 /* Pods_firegram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_firegram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A31B018685520EE4788763D /* Pods-firegram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firegram.debug.xcconfig"; path = "Pods/Target Support Files/Pods-firegram/Pods-firegram.debug.xcconfig"; sourceTree = "<group>"; };
+		D378394E1D2181CF00CC08F1 /* FirebaseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseHelper.swift; sourceTree = "<group>"; };
+		D37839511D2186E000CC08F1 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		D378397C1D21A54900CC08F1 /* Makestagram-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Makestagram-Bridging-Header.h"; sourceTree = "<group>"; };
+		D378397D1D21DCA600CC08F1 /* FriendSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchViewController.swift; sourceTree = "<group>"; };
+		D37839801D21DD4D00CC08F1 /* FriendSearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendSearchTableViewCell.swift; sourceTree = "<group>"; };
+		D37839821D21E00100CC08F1 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D3FB9D101D207E7900DD6E53 /* firegram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = firegram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3FB9D131D207E7900DD6E53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D3FB9D151D207E7900DD6E53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D3FB9D181D207E7900DD6E53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D3FB9D1A1D207E7900DD6E53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D3FB9D1D1D207E7900DD6E53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3FB9D1F1D207E7900DD6E53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3FB9D251D207EC400DD6E53 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D3FB9D281D20835A00DD6E53 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		D3FB9D2B1D20846D00DD6E53 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
+		D3FB9D2D1D2084D400DD6E53 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D3FB9D2F1D20874500DD6E53 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		D3FB9D321D20887600DD6E53 /* PostHeaderCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostHeaderCellView.swift; sourceTree = "<group>"; };
+		D3FB9D331D20887600DD6E53 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		D3FB9D361D20A19F00DD6E53 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		D3FB9D391D20A1C600DD6E53 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +60,54 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFB27650BB60C0030803FFFB /* Pods_firegram.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		41D030FFC2B1D198B710D668 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4217364DFEF0BC2A96323914 /* Pods_firegram.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		81429752BE5983D4232E9D8E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A31B018685520EE4788763D /* Pods-firegram.debug.xcconfig */,
+				1C026AE75EC31828998F0BF0 /* Pods-firegram.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D37839501D21865300CC08F1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D37839511D2186E000CC08F1 /* Post.swift */,
+				D37839821D21E00100CC08F1 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D378397F1D21DD4D00CC08F1 /* FriendSearch */ = {
+			isa = PBXGroup;
+			children = (
+				D37839801D21DD4D00CC08F1 /* FriendSearchTableViewCell.swift */,
+			);
+			path = FriendSearch;
+			sourceTree = "<group>";
+		};
 		D3FB9D071D207E7900DD6E53 = {
 			isa = PBXGroup;
 			children = (
 				D3FB9D121D207E7900DD6E53 /* firegram */,
 				D3FB9D111D207E7900DD6E53 /* Products */,
+				81429752BE5983D4232E9D8E /* Pods */,
+				41D030FFC2B1D198B710D668 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +122,59 @@
 		D3FB9D121D207E7900DD6E53 /* firegram */ = {
 			isa = PBXGroup;
 			children = (
+				D37839501D21865300CC08F1 /* Models */,
+				D3FB9D381D20A1C600DD6E53 /* PhotoTaking */,
+				D3FB9D311D20883800DD6E53 /* Views */,
+				D3FB9D2A1D20846D00DD6E53 /* Helpers */,
+				D3FB9D271D20834A00DD6E53 /* View Controllers */,
+				D3FB9D251D207EC400DD6E53 /* GoogleService-Info.plist */,
 				D3FB9D131D207E7900DD6E53 /* AppDelegate.swift */,
-				D3FB9D151D207E7900DD6E53 /* ViewController.swift */,
 				D3FB9D171D207E7900DD6E53 /* Main.storyboard */,
 				D3FB9D1A1D207E7900DD6E53 /* Assets.xcassets */,
 				D3FB9D1C1D207E7900DD6E53 /* LaunchScreen.storyboard */,
 				D3FB9D1F1D207E7900DD6E53 /* Info.plist */,
+				D378397C1D21A54900CC08F1 /* Makestagram-Bridging-Header.h */,
 			);
 			path = firegram;
+			sourceTree = "<group>";
+		};
+		D3FB9D271D20834A00DD6E53 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D3FB9D361D20A19F00DD6E53 /* PhotoViewController.swift */,
+				D3FB9D281D20835A00DD6E53 /* SignInViewController.swift */,
+				D3FB9D2F1D20874500DD6E53 /* TimelineViewController.swift */,
+				D378397D1D21DCA600CC08F1 /* FriendSearchViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		D3FB9D2A1D20846D00DD6E53 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D3FB9D2B1D20846D00DD6E53 /* ErrorHandling.swift */,
+				D3FB9D2D1D2084D400DD6E53 /* Constants.swift */,
+				D378394E1D2181CF00CC08F1 /* FirebaseHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D3FB9D311D20883800DD6E53 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D378397F1D21DD4D00CC08F1 /* FriendSearch */,
+				D3FB9D321D20887600DD6E53 /* PostHeaderCellView.swift */,
+				D3FB9D331D20887600DD6E53 /* PostTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D3FB9D381D20A1C600DD6E53 /* PhotoTaking */ = {
+			isa = PBXGroup;
+			children = (
+				D3FB9D391D20A1C600DD6E53 /* PhotoTakingHelper.swift */,
+			);
+			path = PhotoTaking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +184,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3FB9D221D207E7900DD6E53 /* Build configuration list for PBXNativeTarget "firegram" */;
 			buildPhases = (
+				622AD7E62B0267A2D2000885 /* [CP] Check Pods Manifest.lock */,
 				D3FB9D0C1D207E7900DD6E53 /* Sources */,
 				D3FB9D0D1D207E7900DD6E53 /* Frameworks */,
 				D3FB9D0E1D207E7900DD6E53 /* Resources */,
+				2B44C8F4E7C5511E0521E9BD /* [CP] Embed Pods Frameworks */,
+				42A65180A94BC7B6587B615F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3FB9D1E1D207E7900DD6E53 /* LaunchScreen.storyboard in Resources */,
+				D3FB9D261D207EC400DD6E53 /* GoogleService-Info.plist in Resources */,
 				D3FB9D1B1D207E7900DD6E53 /* Assets.xcassets in Resources */,
 				D3FB9D191D207E7900DD6E53 /* Main.storyboard in Resources */,
 			);
@@ -130,13 +247,73 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2B44C8F4E7C5511E0521E9BD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-firegram/Pods-firegram-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		42A65180A94BC7B6587B615F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-firegram/Pods-firegram-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		622AD7E62B0267A2D2000885 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D3FB9D0C1D207E7900DD6E53 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3FB9D161D207E7900DD6E53 /* ViewController.swift in Sources */,
+				D3FB9D351D20887600DD6E53 /* PostTableViewCell.swift in Sources */,
+				D37839521D2186E000CC08F1 /* Post.swift in Sources */,
+				D3FB9D2C1D20846D00DD6E53 /* ErrorHandling.swift in Sources */,
+				D3FB9D341D20887600DD6E53 /* PostHeaderCellView.swift in Sources */,
+				D378397E1D21DCA600CC08F1 /* FriendSearchViewController.swift in Sources */,
 				D3FB9D141D207E7900DD6E53 /* AppDelegate.swift in Sources */,
+				D37839831D21E00100CC08F1 /* User.swift in Sources */,
+				D378394F1D2181CF00CC08F1 /* FirebaseHelper.swift in Sources */,
+				D3FB9D291D20835A00DD6E53 /* SignInViewController.swift in Sources */,
+				D37839811D21DD4D00CC08F1 /* FriendSearchTableViewCell.swift in Sources */,
+				D3FB9D371D20A19F00DD6E53 /* PhotoViewController.swift in Sources */,
+				D3FB9D3A1D20A1C600DD6E53 /* PhotoTakingHelper.swift in Sources */,
+				D3FB9D2E1D2084D400DD6E53 /* Constants.swift in Sources */,
+				D3FB9D301D20874500DD6E53 /* TimelineViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +426,7 @@
 		};
 		D3FB9D231D207E7900DD6E53 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A31B018685520EE4788763D /* Pods-firegram.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = firegram/Info.plist;
@@ -260,6 +438,7 @@
 		};
 		D3FB9D241D207E7900DD6E53 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C026AE75EC31828998F0BF0 /* Pods-firegram.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = firegram/Info.plist;
@@ -288,6 +467,7 @@
 				D3FB9D241D207E7900DD6E53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

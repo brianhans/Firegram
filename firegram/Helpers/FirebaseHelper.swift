@@ -169,17 +169,16 @@ class FirebaseHelper{
         
         let ref = FIRDatabase.database().reference()
         
-        let theUser = User(username: "currentUser", key: FIRAuth.auth()!.currentUser!.uid)
         
         
         
-        getFollowingUsersForUser(FIRAuth.auth()!.currentUser!.uid) { (users: [User]) in
+        getFollowingUsersForUser(currentUser.key) { (users: [User]) in
             var posts: [Post] = []
             
             var allUsers = users
             
-            if(!allUsers.contains(theUser)){
-                allUsers.append(theUser)
+            if(!allUsers.contains(currentUser)){
+                allUsers.append(currentUser)
             }
             
             for following in allUsers{

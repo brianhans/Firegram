@@ -61,6 +61,8 @@ class PhotoTakingHelper: NSObject {
         
         viewController.presentViewController(imagePickerController!, animated: true, completion: nil)
     }
+    
+    
 }
 
 //Handles the user selected image
@@ -69,7 +71,6 @@ extension PhotoTakingHelper: UIImagePickerControllerDelegate, UINavigationContro
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         
         
-        print("running")
         //runs the method from timelineviewcontroller which uploads the image to parse
         callback(image, editingInfo)
         viewController.dismissViewControllerAnimated(false, completion: nil)

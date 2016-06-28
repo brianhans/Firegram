@@ -14,6 +14,11 @@ class FriendSearchViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var query: FIRDatabaseQuery?{
+        didSet{
+            oldValue?.removeAllObservers()
+        }
+    }
 
     //Users from last search
     var users: [User]?
@@ -37,26 +42,23 @@ class FriendSearchViewController: UIViewController {
         didSet {
             switch (state){
             case .DefaultMode:
-                print("default mode")
                 FirebaseHelper.allUsers{(data: [User]) in
                     self.users = data
                     self.tableView.reloadData()
                 }
             case .SearchMode:
-                //let searchText = searchBar?.text ?? ""
-                print("search")
+                let searchText = searchBar?.text ?? ""
+                 query = FirebaseHelper.searchUsers(searchText, completionBlock: updateList)
             }
         }
     }
     
     //MARK: Update user list
     
-    func updateList(results: [User]?, error: NSError?){
-        if let error = error{
-            ErrorHandling.defaultErrorHandler(error)
-        }
+    func updateList(results: [User]){
         
-        //self.users = results as? [User] ?? []
+        self.users = results ?? []
+        
         self.tableView.reloadData()
     }
     
@@ -131,6 +133,7 @@ extension FriendSearchViewController: UISearchBarDelegate{
     }
     
     func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        query = FirebaseHelper.searchUsers(searchText, completionBlock: updateList)
     }
     
 }

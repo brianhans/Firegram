@@ -63,7 +63,6 @@ class FirebaseHelper{
      
      */
     static func addFollowRelationshipFromUser(user: User, toUser: User){
-        print("following")
         let ref = FIRDatabase.database().reference()
         ref.child("users").child(user.key).child("following").child(toUser.username).setValue(["key": toUser.key])
     }
@@ -76,7 +75,6 @@ class FirebaseHelper{
      
      */
     static func removeFollowRelationshipFromUser(user: User, toUser: User){
-        print("unfollowing")
         let ref = FIRDatabase.database().reference()
         ref.child("users").child(user.key).child("following").child(toUser.username).removeValue()
     }
@@ -118,7 +116,27 @@ class FirebaseHelper{
      :returns:                  The PFQuery for the users (so that we can use the reference to cancel later
      
      */
-    static func searchUsers(searchText: String, completionBlock: Any){
+    static func searchUsers(searchText: String, completionBlock: [User] -> Void) -> FIRDatabaseQuery{
+        let ref = FIRDatabase.database().reference()
+        let query = ref.child("users").queryOrderedByChild("username").queryStartingAtValue(searchText)
+        query.observeSingleEventOfType(.Value) { (snapshot: FIRDataSnapshot) in
+            var users: [User] = []
+            for user in snapshot.children{
+                let data = user as! FIRDataSnapshot
+                let username = data.value!["username"] as! String
+                
+                if(username == currentUser.username){
+                    continue
+                }
+                
+                let key = data.key
+                users.append(User(username: username, key: key))
+            }
+            
+            completionBlock(users)
+        }
+        
+        return query
     }
     
     //MARK: FlaggedContent
@@ -146,7 +164,7 @@ class FirebaseHelper{
     }
     
     
-    static func timeLineRequestForCurrentUser(range: Range<Int>, completionBlock: ([Post]) -> Void){
+    static func timeLineRequestForCurrentUser(completionBlock: ([Post]) -> Void){
         
         
         let ref = FIRDatabase.database().reference()
@@ -166,7 +184,6 @@ class FirebaseHelper{
             
             for following in allUsers{
                 ref.child("posts").child(following.key).observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot) in
-                    print("firebase change")
                     
                     let key = snapshot.key
                     let path = snapshot.value!["path"]! as! String
@@ -197,9 +214,6 @@ class FirebaseHelper{
                 }
             }
         }
-        
-        
-        
     }
-    
+        
 }

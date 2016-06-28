@@ -19,7 +19,6 @@ class User: NSObject{
     }
 
     override func isEqual(object: AnyObject?) -> Bool {
-        print((object as? User)!.username + " "  + self.username)
         if(object as? User)!.username == self.username{
             return true
         }

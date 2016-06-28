@@ -24,12 +24,10 @@ class TimelineViewController: UIViewController{
         tabBarController?.delegate = self
         
         
-        FirebaseHelper.timeLineRequestForCurrentUser(0...5){ (posts: [Post]?) -> Void in
+        FirebaseHelper.timeLineRequestForCurrentUser{ (posts: [Post]?) -> Void in
             if let posts = posts{
-                print(posts.count)
                 self.posts = posts
             }
-            print("reloading data")
             self.tableView.reloadData()
         }
     }
@@ -64,9 +62,6 @@ extension TimelineViewController: UITableViewDataSource{
     //Updates the images in the cells
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        print("cellForRowAtIndexPath: \(indexPath.section )")
-
-        
         //Casting to the sepecific type allows access to references to the cells components
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell") as! PostTableViewCell
         
@@ -99,7 +94,6 @@ extension TimelineViewController: UITabBarControllerDelegate{
             //generates path at userid and assigns random name
             let photoReference = self.storageRef.child(FIRAuth.auth()!.currentUser!.uid + "/\(NSDate.timeIntervalSinceReferenceDate() * 1000)")
             let imageData = UIImageJPEGRepresentation(image!, 0.01)!
-            print("Callback")
             
             let uploadTask = photoReference.putData(imageData, metadata: nil){(metadata, error) in
                 if let error = error{

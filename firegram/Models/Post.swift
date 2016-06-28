@@ -44,7 +44,6 @@ class Post: NSObject{
         image.value = Post.imageCache[self.imagePath]
         
         if(image.value == nil){
-            print("Downloading image")
             FIRStorage.storage().referenceWithPath(imagePath).dataWithMaxSize(INT64_MAX) { (data, error) in
                 if let error = error{
                     print(error.localizedDescription)
@@ -54,17 +53,15 @@ class Post: NSObject{
                     self.image.value = UIImage(data: data, scale: 1.0)
                     
                     Post.imageCache[self.imagePath] = self.image.value
-                }else{
-                    print("error downloading \(self.imagePath)")
                 }
                 
             }
         }
     }
+
     
     func fetchLikes(){
         FirebaseHelper.likesForPost(self){(likes: [String])in
-            print("likes: \(likes)")
             self.likes.value = likes
         }
     }

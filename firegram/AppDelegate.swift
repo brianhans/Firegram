@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         if let user = FIRAuth.auth()?.currentUser{
             
-            FIRDatabase.database().reference().child("users").child(user.uid).observeSingleEventOfType(.Value, withBlock: { (snapshot: FIRDataSnapshot) in
-                FirebaseHelper.currentUser = User(username: snapshot.value!["username"] as! String, key: FIRAuth.auth()!.currentUser!.uid)
+            FIRDatabase.database().reference().child(Constants.FirebaseCatagories.users).child(user.uid).observeSingleEventOfType(.Value, withBlock: { (snapshot: FIRDataSnapshot) in
+                FirebaseHelper.currentUser = User(username: snapshot.value as! String, key: FIRAuth.auth()!.currentUser!.uid)
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 self.window = UIWindow(frame: UIScreen.mainScreen().bounds)

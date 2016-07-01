@@ -16,18 +16,18 @@ class FirebaseHelper{
     
     static func likePost(username: String, post: Post){
         let ref = FIRDatabase.database().reference()
-        ref.child("likes").child(post.key).child(username).setValue([username: "liked"])
+        ref.child(Constants.FirebaseCatagories.likes).child(post.key).updateChildValues([username: "liked"])
     }
     
     static func unlikePost(username: String, post: Post){
         let ref = FIRDatabase.database().reference()
-        ref.child("likes").child(post.key).child(username).removeValue()
+        ref.child(Constants.FirebaseCatagories.likes).child(post.key).child(username).removeValue()
         
     }
     static func likesForPost(post: Post, completetionBlock: ([String]) -> Void){
         let ref = FIRDatabase.database().reference()
         
-        ref.child("likes").child(post.key).observeEventType(.Value) { (snapshot: FIRDataSnapshot) in
+        ref.child(Constants.FirebaseCatagories.likes).child(post.key).observeEventType(.Value) { (snapshot: FIRDataSnapshot) in
             var likes: [String] = []
             for like in snapshot.children{
                 likes.append(like.key)
@@ -45,12 +45,12 @@ class FirebaseHelper{
      */
     static func getFollowingUsersForUser(path: String, completionBlock: ([User]) -> Void){
         let ref = FIRDatabase.database().reference()
-        ref.child("users").child(path).child("following").observeEventType(.Value) { (snapshot: FIRDataSnapshot) in
+        ref.child(Constants.FirebaseCatagories.followers).child(path).observeEventType(.Value) { (snapshot: FIRDataSnapshot) in
             var users: [User] = []
             
             for following in snapshot.children{
                 let following = following as! FIRDataSnapshot
-                let newUser = User(username: following.key, key: following.value!["key"] as! String)
+                let newUser = User(username: following.value as! String, key: following.key)
                 users.append(newUser)
             }
             completionBlock(users)
@@ -64,7 +64,7 @@ class FirebaseHelper{
      */
     static func addFollowRelationshipFromUser(user: User, toUser: User){
         let ref = FIRDatabase.database().reference()
-        ref.child("users").child(user.key).child("following").child(toUser.username).setValue(["key": toUser.key])
+        ref.child(Constants.FirebaseCatagories.followers).child(user.key).updateChildValues([toUser.key: toUser.username])
     }
     
     /**
@@ -76,7 +76,7 @@ class FirebaseHelper{
      */
     static func removeFollowRelationshipFromUser(user: User, toUser: User){
         let ref = FIRDatabase.database().reference()
-        ref.child("users").child(user.key).child("following").child(toUser.username).removeValue()
+        ref.child(Constants.FirebaseCatagories.followers).child(user.key).child(toUser.key).removeValue()
     }
     
     //MARK: Users
@@ -93,13 +93,13 @@ class FirebaseHelper{
     static func allUsers(completionBlock: ([User]) -> Void){
         let ref = FIRDatabase.database().reference()
         
-        ref.child("users").observeSingleEventOfType(.Value) { (snapshot: FIRDataSnapshot) in
+        ref.child(Constants.FirebaseCatagories.users).observeSingleEventOfType(.Value) { (snapshot: FIRDataSnapshot) in
             
             var users: [User] = []
             
             for user in snapshot.children{
                 let data = user as! FIRDataSnapshot
-                let username = data.value!["username"] as! String
+                let username = data.value as! String
                 users.append(User(username: username, key: data.key))
             }
             users = users.filter{!$0.isEqual(currentUser)}
@@ -118,21 +118,20 @@ class FirebaseHelper{
      */
     static func searchUsers(searchText: String, completionBlock: [User] -> Void) -> FIRDatabaseQuery{
         let ref = FIRDatabase.database().reference()
-        let query = ref.child("users").queryOrderedByChild("username").queryStartingAtValue(searchText)
+        let query = ref.child(Constants.FirebaseCatagories.users).queryOrderedByValue().queryStartingAtValue(searchText)
         query.observeSingleEventOfType(.Value) { (snapshot: FIRDataSnapshot) in
             var users: [User] = []
             for user in snapshot.children{
                 let data = user as! FIRDataSnapshot
-                let username = data.value!["username"] as! String
+                let username = data.value as! String
+                let key = data.key
                 
                 if(username == currentUser.username){
                     continue
                 }
                 
-                let key = data.key
                 users.append(User(username: username, key: key))
             }
-            
             completionBlock(users)
         }
         
@@ -170,8 +169,6 @@ class FirebaseHelper{
         let ref = FIRDatabase.database().reference()
         
         
-        
-        
         getFollowingUsersForUser(currentUser.key) { (users: [User]) in
             var posts: [Post] = []
             
@@ -182,7 +179,7 @@ class FirebaseHelper{
             }
             
             for following in allUsers{
-                ref.child("posts").child(following.key).observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot) in
+                ref.child(Constants.FirebaseCatagories.posts).child(following.key).observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot) in
                     
                     let key = snapshot.key
                     let path = snapshot.value!["path"]! as! String
@@ -201,7 +198,7 @@ class FirebaseHelper{
                     completionBlock(posts)
                 }
                 
-                ref.child("posts").child(following.key).observeEventType(.ChildRemoved) { (snapshot: FIRDataSnapshot) in
+                ref.child(Constants.FirebaseCatagories.posts).child(following.key).observeEventType(.ChildRemoved) { (snapshot: FIRDataSnapshot) in
                     let key = snapshot.key
                     let path = snapshot.value!["path"]! as! String
                     let username = snapshot.value!["username"] as! String

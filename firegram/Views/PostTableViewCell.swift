@@ -33,6 +33,11 @@ class PostTableViewCell: UITableViewCell{
             postDisposable?.dispose()
             likesDisposable?.dispose()
             
+            //Free the old image reference when it is not displayed
+            if let oldValue = oldValue where oldValue != post {
+                oldValue.image.value = nil
+            }
+            
             if let post = post{
                 postDisposable = post.image.bindTo(postImageView.bnd_image)
                 likesDisposable = post.likes.observe({ (value: [String]?) -> Void in

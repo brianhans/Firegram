@@ -106,7 +106,7 @@ extension TimelineViewController: UITabBarControllerDelegate{
                 let path = photoReference.fullPath
                 
                 //Stores date as time since 1970 so it will fit in database
-                self.ref.child("posts").child(FIRAuth.auth()!.currentUser!.uid).childByAutoId().setValue(["path": path, "date": NSDate().timeIntervalSince1970, "username": FirebaseHelper.currentUser.username])
+                self.ref.child(Constants.FirebaseCatagories.posts).child(FIRAuth.auth()!.currentUser!.uid).childByAutoId().setValue(["path": path, "date": NSDate().timeIntervalSince1970, "username": FirebaseHelper.currentUser.username])
                 
                 
             }

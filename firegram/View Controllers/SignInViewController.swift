@@ -48,7 +48,7 @@ class SignInViewController: UIViewController{
             }
             FirebaseHelper.currentUser = User(username: username, key: FIRAuth.auth()!.currentUser!.uid)
             let ref = FIRDatabase.database().reference()
-            ref.child("users").child(user!.uid).setValue(["username": username])
+            ref.child(Constants.FirebaseCatagories.users).setValue([user!.uid : username])
             
             self.performSegueWithIdentifier(Constants.Segues.signInToHome, sender: nil)
         })

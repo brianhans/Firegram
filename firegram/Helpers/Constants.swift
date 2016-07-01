@@ -16,5 +16,8 @@ struct Constants{
     
     struct FirebaseCatagories {
         static let users = "users"
+        static let likes = "likes"
+        static let posts = "posts"
+        static let followers = "followers"
     }
 }

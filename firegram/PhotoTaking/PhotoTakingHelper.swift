@@ -38,7 +38,16 @@ class PhotoTakingHelper: NSObject {
             self.showImagePickerController(.PhotoLibrary)
         })
         
+        
         alertController.addAction(photoLibraryAction)
+        
+        let signOutAction = UIAlertAction(title: "Sign Out", style: .Default){(action) in
+            FirebaseHelper.signOut(){() in
+                self.viewController.performSegueWithIdentifier(Constants.Segues.homeToSignIn, sender: nil)
+            }
+        }
+        
+        alertController.addAction(signOutAction)
         
         if(UIImagePickerController.isCameraDeviceAvailable(.Rear)){
             let cameraAction = UIAlertAction(title: "Camera", style: .Default, handler: {(action) in
@@ -74,7 +83,7 @@ extension PhotoTakingHelper: UIImagePickerControllerDelegate, UINavigationContro
         //runs the method from timelineviewcontroller which uploads the image to parse
         callback(image, editingInfo)
         viewController.dismissViewControllerAnimated(false, completion: nil)
-
+        
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {

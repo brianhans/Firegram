@@ -12,6 +12,7 @@ struct Constants{
     
     struct Segues {
         static let signInToHome = "signInToHome"
+        static let homeToSignIn = "homeToSignIn"
     }
     
     struct FirebaseCatagories {

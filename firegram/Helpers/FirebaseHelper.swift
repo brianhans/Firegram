@@ -162,6 +162,16 @@ class FirebaseHelper{
         
     }
     
+    static func signOut(completionBlock: () -> Void){
+        do{
+            try FIRAuth.auth()!.signOut()
+        }catch{
+            print("failed to sign out")
+            return
+        }
+        completionBlock()
+    }
+    
     
     static func timeLineRequestForCurrentUser(completionBlock: ([Post]) -> Void){
         
@@ -173,14 +183,13 @@ class FirebaseHelper{
             var posts: [Post] = []
             
             var allUsers = users
-            
             if(!allUsers.contains(currentUser)){
                 allUsers.append(currentUser)
             }
             
+            
             for following in allUsers{
                 ref.child(Constants.FirebaseCatagories.posts).child(following.key).observeEventType(.ChildAdded) { (snapshot: FIRDataSnapshot) in
-                    
                     let key = snapshot.key
                     let path = snapshot.value!["path"]! as! String
                     let username = snapshot.value!["username"] as! String
@@ -192,6 +201,7 @@ class FirebaseHelper{
                         posts.insert(postFile, atIndex: 0)
                     }
                     
+                    print(key)
                     
                     
                     posts.sortInPlace{$0.date.isLaterThan($1.date)}

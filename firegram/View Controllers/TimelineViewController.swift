@@ -28,6 +28,7 @@ class TimelineViewController: UIViewController{
             if let posts = posts{
                 self.posts = posts
             }
+            
             self.tableView.contentOffset = CGPoint(x: self.tableView.contentOffset.x, y: self.tableView.contentOffset.y + 510)
             self.tableView.reloadData()
         }
